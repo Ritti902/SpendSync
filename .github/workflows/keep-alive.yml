@@ -1,0 +1,24 @@
+name: Render Keep Alive
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+jobs:
+  keep-alive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Ping Render backend
+        env:
+          RENDER_BACKEND_URL: ${{ secrets.RENDER_BACKEND_URL || vars.RENDER_BACKEND_URL }}
+        run: node scripts/keep-alive.js

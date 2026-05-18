@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SpendSync - Premium Expense Tracking</title>
+    <meta name="description" content="SpendSync is a premium expense tracking dashboard for budgets, spending analytics, and monthly financial clarity." />
+    <meta name="author" content="SpendSync" />
+    <meta name="theme-color" content="#f7eaee" />
+    <link rel="icon" type="image/png" href="/spending.png" />
+    <link rel="apple-touch-icon" href="/spending.png" />
+
+    <meta property="og:title" content="SpendSync - Premium Expense Tracking" />
+    <meta property="og:description" content="Track expenses, budgets, and spending trends with a polished fintech dashboard." />
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+
+  <body>
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem("spendsync-theme") || "system";
+          var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          var resolved = stored === "system" ? (prefersDark ? "dark" : "light") : stored;
+          document.documentElement.classList.toggle("dark", resolved === "dark");
+          document.documentElement.dataset.theme = resolved;
+          document.documentElement.style.colorScheme = resolved;
+        } catch (_) {}
+      })();
+    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

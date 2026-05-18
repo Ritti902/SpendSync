@@ -1,0 +1,244 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 340 36% 94%;
+    --foreground: 338 18% 19%;
+
+    --card: 339 33% 88%;
+    --card-foreground: 338 18% 19%;
+
+    --popover: 340 38% 96%;
+    --popover-foreground: 338 18% 19%;
+
+    --primary: 340 30% 65%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 340 30% 65%;
+
+    --secondary: 339 27% 84%;
+    --secondary-foreground: 338 18% 19%;
+    --secondary-glow: 339 27% 84%;
+
+    --accent: 337 28% 58%;
+    --accent-foreground: 0 0% 100%;
+    --icon: 339 32% 34%;
+
+    --muted: 339 24% 87%;
+    --muted-foreground: 338 11% 40%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 145 63% 38%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --border: 338 23% 78%;
+    --input: 340 32% 95%;
+    --ring: 340 30% 65%;
+
+    --radius: 1rem;
+    --glass-bg: 340 38% 96% / 0.7;
+    --glass-border: 340 30% 65% / 0.18;
+    --gradient-primary: linear-gradient(135deg, #c98b9c 0%, #d9a8b3 52%, #f5e6ea 100%);
+    --gradient-aurora: radial-gradient(circle at 18% 16%, rgb(201 139 156 / 0.22), transparent 34%),
+      radial-gradient(circle at 82% 22%, rgb(245 230 234 / 0.82), transparent 38%),
+      radial-gradient(circle at 58% 86%, rgb(183 121 137 / 0.18), transparent 38%);
+    --gradient-card: linear-gradient(145deg, rgb(255 247 249 / 0.76), rgb(239 217 223 / 0.66));
+    --gradient-text: linear-gradient(135deg, #3b2b31 0%, #c98b9c 100%);
+    --shadow-glow-primary: 0 14px 38px rgb(201 139 156 / 0.24), 0 0 42px rgb(201 139 156 / 0.12);
+    --shadow-glow-secondary: 0 18px 48px rgb(239 217 223 / 0.42);
+    --shadow-glow-accent: 0 18px 48px rgb(183 121 137 / 0.18);
+    --shadow-elegant: 0 24px 70px rgb(59 43 49 / 0.12), 0 8px 24px rgb(59 43 49 / 0.08);
+  }
+
+  .dark {
+    --background: 336 18% 15%;
+    --foreground: 338 31% 88%;
+
+    --card: 336 15% 21%;
+    --card-foreground: 338 31% 88%;
+
+    --popover: 336 15% 21%;
+    --popover-foreground: 338 31% 88%;
+
+    --primary: 339 33% 69%;
+    --primary-foreground: 336 18% 15%;
+    --primary-glow: 339 33% 69%;
+
+    --secondary: 337 14% 40%;
+    --secondary-foreground: 338 31% 88%;
+    --secondary-glow: 337 14% 40%;
+
+    --accent: 339 33% 69%;
+    --accent-foreground: 336 18% 15%;
+    --icon: 338 48% 82%;
+
+    --muted: 336 14% 24%;
+    --muted-foreground: 338 17% 66%;
+
+    --destructive: 0 70% 58%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 145 55% 45%;
+    --success-foreground: 336 18% 15%;
+
+    --warning: 38 92% 54%;
+    --border: 337 14% 42% / 0.3;
+    --input: 336 14% 24%;
+    --ring: 339 33% 69%;
+
+    --glass-bg: 336 14% 24% / 0.6;
+    --glass-border: 339 24% 68% / 0.18;
+    --gradient-primary: linear-gradient(135deg, #d2a0ad 0%, #b77a89 52%, #6c4b55 100%);
+    --gradient-aurora: radial-gradient(circle at 16% 14%, rgb(210 160 173 / 0.18), transparent 34%),
+      radial-gradient(circle at 78% 18%, rgb(108 75 85 / 0.18), transparent 36%),
+      radial-gradient(circle at 50% 88%, rgb(183 122 137 / 0.12), transparent 40%);
+    --gradient-card: linear-gradient(145deg, rgb(73 54 61 / 0.76), rgb(39 29 34 / 0.68));
+    --gradient-text: linear-gradient(135deg, #f2dfe4 0%, #d2a0ad 100%);
+    --shadow-glow-primary: 0 16px 40px rgb(210 160 173 / 0.2), 0 0 48px rgb(210 160 173 / 0.1);
+    --shadow-glow-secondary: 0 18px 48px rgb(108 75 85 / 0.16);
+    --shadow-glow-accent: 0 18px 48px rgb(183 122 137 / 0.16);
+    --shadow-elegant: 0 24px 70px rgb(0 0 0 / 0.3), 0 8px 24px rgb(0 0 0 / 0.22);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html,
+  body,
+  #root {
+    min-height: 100%;
+    width: 100%;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background-color: hsl(var(--background));
+    background-image: var(--gradient-aurora);
+    background-attachment: fixed;
+    color: hsl(var(--foreground));
+    font-family: "Inter", system-ui, sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    transition: background-color 260ms ease, color 260ms ease;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "Space Grotesk", "Inter", system-ui, sans-serif;
+    letter-spacing: 0;
+  }
+
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  input,
+  select,
+  textarea {
+    min-width: 0;
+  }
+
+  @media (max-width: 640px) {
+    input,
+    select,
+    textarea {
+      font-size: 16px;
+    }
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.3);
+    color: hsl(var(--foreground));
+  }
+}
+
+@layer components {
+  .glass {
+    background: hsl(var(--glass-bg));
+    border: 1px solid hsl(var(--glass-border));
+    backdrop-filter: blur(22px) saturate(150%);
+    -webkit-backdrop-filter: blur(22px) saturate(150%);
+  }
+
+  .glass-card {
+    background: var(--gradient-card);
+    border: 1px solid hsl(var(--glass-border));
+    box-shadow: var(--shadow-elegant);
+    backdrop-filter: blur(24px) saturate(150%);
+    -webkit-backdrop-filter: blur(24px) saturate(150%);
+  }
+
+  .text-gradient {
+    background: var(--gradient-text);
+    background-clip: text;
+    color: transparent;
+    -webkit-background-clip: text;
+  }
+
+  .glow-primary {
+    box-shadow: var(--shadow-glow-primary);
+  }
+
+  .glow-secondary {
+    box-shadow: var(--shadow-glow-secondary);
+  }
+
+  .glow-accent {
+    box-shadow: var(--shadow-glow-accent);
+  }
+
+  .premium-input {
+    width: 100%;
+    border-radius: 1rem;
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--input) / 0.72);
+    color: hsl(var(--foreground));
+    padding: 0.875rem 1rem;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+  }
+
+  .premium-input::placeholder {
+    color: hsl(var(--muted-foreground));
+  }
+
+  .premium-input:focus {
+    border-color: hsl(var(--primary) / 0.70);
+    box-shadow: 0 0 0 4px hsl(var(--primary) / 0.16), 0 14px 36px hsl(var(--primary) / 0.12);
+  }
+
+  .shimmer {
+    background: linear-gradient(110deg, transparent 35%, hsl(var(--primary) / 0.18) 50%, transparent 65%);
+    background-size: 200% 100%;
+    animation: shimmer 2.5s infinite;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
