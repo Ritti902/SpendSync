@@ -1,7 +1,0 @@
-.env
-.env.*
-bin/
-tmp/
-coverage/
-*.test
-.DS_Store

@@ -1,6 +1,6 @@
 # SpendSync
 
-SpendSync is a full-stack expense tracker and personal finance management web app built with React, TypeScript, Go, Fiber, MongoDB, and Docker. It helps users manage expenses, income, budgets, and categories through a modern dashboard with secure JWT-based authentication.
+SpendSync is a full-stack expense tracker and personal finance management web app built with React, TypeScript, Go, Fiber, MongoDB, and local development tooling. It helps users manage expenses, income, budgets, and categories through a modern dashboard with secure JWT-based authentication.
 
 ![SpendSync dashboard preview](SpendSync-frontend/public/spending.png)
 
@@ -12,7 +12,7 @@ SpendSync is a full-stack expense tracker and personal finance management web ap
 - Category management
 - Dashboard analytics and history views
 - Responsive UI built with Tailwind CSS
-- Dockerized local services for MongoDB, Redis, and MailHog
+- Local development services for MongoDB, Redis, and MailHog
 
 ## Tech Stack
 
@@ -132,14 +132,6 @@ npm run dev
 
 The frontend runs at `http://localhost:5173`.
 
-### 7. Optional: run backend services with Docker Compose
-
-The current `docker-compose.yml` includes MongoDB, Redis, MailHog, and the Go backend service. The frontend is not containerized in this setup, so it still runs with Vite locally.
-
-```bash
-docker compose up --build backend
-```
-
 ## Available Commands
 
 ### Frontend
@@ -164,7 +156,7 @@ go run ./cmd/api
 - Health check: `GET /api/v1/health`
 - Additional API documentation: `SpendSync-backend/docs/API.md`
 
-## Docker Services
+## Local Services
 
 - MongoDB: `mongodb://localhost:27017`
 - Redis: `redis://localhost:6379`
